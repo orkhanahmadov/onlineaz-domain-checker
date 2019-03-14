@@ -1,0 +1,63 @@
+{
+    "name": "orkhanahmadov/onlineaz-domain-checker",
+    "description": "Online.az Domain Checker",
+    "keywords": ["online.az", "domain", "checker", "docker", "console", "cli"],
+    "type": "project",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/orkhanahmadov/onlineaz-domain-checker/issues",
+        "source": "https://github.com/orkhanahmadov/onlineaz-domain-checker"
+    },
+    "authors": [
+        {
+            "name": "Orkhan I. Ahmadov",
+            "email": "ahmadov90@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/bus": "^5.7",
+        "illuminate/mail": "^5.7",
+        "illuminate/queue": "^5.7",
+        "illuminate/translation": "^5.7",
+        "illuminate/view": "^5.7",
+        "laravel-zero/framework": "5.7.*",
+        "symfony/css-selector": "^4.2",
+        "symfony/dom-crawler": "^4.2",
+        "vlucas/phpdotenv": "^2.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "platform": {
+            "ext-posix": "0"
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php application app:rename"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "bin": ["domain-checker"]
+}

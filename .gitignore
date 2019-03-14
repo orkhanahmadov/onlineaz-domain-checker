@@ -1,0 +1,8 @@
+/vendor
+/.idea
+/.vscode
+/.vagrant
+/.code-coverage
+/builds
+.env
+coverage.xml

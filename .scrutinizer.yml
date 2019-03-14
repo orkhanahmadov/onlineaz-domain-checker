@@ -1,0 +1,32 @@
+filter:
+  paths:
+    - 'app/*'
+  excluded_paths:
+    - 'app/views/*'
+    - 'app/config/*'
+
+checks:
+  php: true
+
+coding_style:
+  php:
+    spaces:
+      within:
+        brackets: true
+
+build:
+  nodes:
+    analysis:
+      project_setup:
+        override:
+          - 'true'
+      tests:
+        override:
+          - php-scrutinizer-run
+    coverage:
+      tests:
+        override:
+          - command: cp .env.example .env && ./vendor/bin/phpunit --exclude-group integration --coverage-clover=coverage.xml
+            coverage:
+              file: coverage.xml
+              format: clover
