@@ -34,7 +34,7 @@ class DomainsMail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Some of domains you listed are free')
+            ->subject('Some domains you listed are free!')
             ->markdown('emails.domains');
     }
 }

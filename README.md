@@ -12,12 +12,12 @@ Simple dockerized cli application to periodically check for domain availability 
 
 #### Pulling as Docker image (recommended)
 
-- Run: ``docker run -dit --restart unless-stopped orkhanahmadov/onlineaz-domain-checker``
+- Run: ```docker run -dit --restart unless-stopped orkhanahmadov/onlineaz-domain-checker```
 
 #### Building from source
 
 - Clone this project
-- Add your configuration to ``.env.example``
+- Add your configuration to ```.env.example```
 - Run ```docker build -t orkhanahmadov/onlineaz-domain-checker .``` 
 - Run ```docker run -it orkhanahmadov/onlineaz-domain-checker```
 
@@ -37,7 +37,7 @@ To setup application, run:
 
 <br />
 
-To add/update domain list, run: 
+To add/update domains, run: 
 
 ```docker exec -it CONTAINER_ID_HERE onlineaz domains```
 
