@@ -1,3 +1,7 @@
+[![StyleCI](https://github.styleci.io/repos/175622936/shield?branch=master)](https://github.styleci.io/repos/175622936)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/orkhanahmadov/onlineaz-domain-checker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/orkhanahmadov/onlineaz-domain-checker/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/orkhanahmadov/onlineaz-domain-checker/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
 ## [online.az](https://online.az) Domain Checker
 
 Simple dockerized cli application to periodically check for domain availability on [online.az](https://online.az)
