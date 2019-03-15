@@ -10,8 +10,6 @@ class DomainsCommandTest extends TestCase
     public function test_sets_domains_to_env()
     {
         $this->assertEquals('', env('DOMAINS'));
-        $env = new Dotenv(base_path());
-        $env->overload();
 
         $this->artisan('domains')
             ->expectsQuestion(
@@ -19,7 +17,7 @@ class DomainsCommandTest extends TestCase
                 'domain1 domain2.az domain3.org.az'
             )
             ->assertExitCode(0);
-        $env->overload();
+        Dotenv::create(base_path())->overload();
 
         $domains = explode(',', env('DOMAINS'));
 
@@ -28,11 +26,11 @@ class DomainsCommandTest extends TestCase
         $this->assertEquals('domain3.org.az', $domains[2]);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 
         setEnvironmentValues('DOMAINS', '');
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
     }
 }

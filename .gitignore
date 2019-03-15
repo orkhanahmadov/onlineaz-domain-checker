@@ -6,3 +6,4 @@
 /builds
 .env
 coverage.xml
+.phpunit.result.cache

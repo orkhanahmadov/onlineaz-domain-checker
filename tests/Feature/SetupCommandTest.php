@@ -24,7 +24,7 @@ class SetupCommandTest extends TestCase
             ->expectsQuestion('SMTP password', 'pass')
             ->expectsQuestion('SMTP encryption', 'ssl')
             ->assertExitCode(0);
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
 
         $this->assertEquals('whatever@example.com', env('MAIL_TO'));
         $this->assertEquals('smtp.whatever', env('MAIL_HOST'));
@@ -34,7 +34,7 @@ class SetupCommandTest extends TestCase
         $this->assertEquals('ssl', env('MAIL_ENCRYPTION'));
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 
@@ -44,6 +44,6 @@ class SetupCommandTest extends TestCase
         setEnvironmentValues('MAIL_USERNAME', '');
         setEnvironmentValues('MAIL_PASSWORD', '');
         setEnvironmentValues('MAIL_ENCRYPTION', 'tls');
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
     }
 }

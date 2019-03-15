@@ -17,8 +17,7 @@ class CheckCommandTest extends TestCase
         setEnvironmentValues('MAIL_TO', 'email@example.com');
         setEnvironmentValues('MAIL_USERNAME', 'username');
         setEnvironmentValues('MAIL_PASSWORD', 'password');
-        $env = new Dotenv(base_path());
-        $env->overload();
+        Dotenv::create(base_path())->overload();
 
         $this->artisan('check')
             ->expectsOutput('Domain list is empty. Please run "domains" command to add domain names you wish to be checked.')
@@ -28,8 +27,7 @@ class CheckCommandTest extends TestCase
     public function test_shows_error_message_if_email_setup_does_not_exist()
     {
         setEnvironmentValues('DOMAINS', 'whatever');
-        $env = new Dotenv(base_path());
-        $env->overload();
+        Dotenv::create(base_path())->overload();
 
         $this->artisan('check')
             ->expectsOutput('Email configuration is missing. Please run "setup" command to configure email.')
@@ -43,7 +41,7 @@ class CheckCommandTest extends TestCase
         setEnvironmentValues('MAIL_TO', 'email@example.com');
         setEnvironmentValues('MAIL_USERNAME', 'username');
         setEnvironmentValues('MAIL_PASSWORD', 'password');
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
         Mail::fake();
 
         $this->artisan('check')->assertExitCode(0);
@@ -63,7 +61,7 @@ class CheckCommandTest extends TestCase
         setEnvironmentValues('MAIL_TO', 'email@example.com');
         setEnvironmentValues('MAIL_USERNAME', 'username');
         setEnvironmentValues('MAIL_PASSWORD', 'password');
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
         Mail::fake();
 
         $this->artisan('check')->assertExitCode(0);
@@ -81,7 +79,7 @@ class CheckCommandTest extends TestCase
         setEnvironmentValues('MAIL_TO', 'email@example.com');
         setEnvironmentValues('MAIL_USERNAME', 'username');
         setEnvironmentValues('MAIL_PASSWORD', 'password');
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
         Mail::fake();
 
         $this->artisan('check')->assertExitCode(0);
@@ -91,7 +89,7 @@ class CheckCommandTest extends TestCase
         });
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 
@@ -99,6 +97,6 @@ class CheckCommandTest extends TestCase
         setEnvironmentValues('MAIL_TO', '');
         setEnvironmentValues('MAIL_USERNAME', '');
         setEnvironmentValues('MAIL_PASSWORD', '');
-        (new Dotenv(base_path()))->overload();
+        Dotenv::create(base_path())->overload();
     }
 }
