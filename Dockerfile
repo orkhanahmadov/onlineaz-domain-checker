@@ -7,16 +7,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /tmp
 COPY composer.json composer.lock /tmp/
-RUN mkdir -p database/seeds && \
-    mkdir -p database/factories && \
-    composer install --no-dev --prefer-dist -o && \
+RUN composer install --prefer-dist -o && \
     rm -rf composer.json composer.lock database/ vendor/
 
 
 WORKDIR /app
 COPY . /app
 COPY .env.example /app/.env
-RUN composer install --no-dev --prefer-dist -o
+RUN composer install --prefer-dist -o
 
 
 COPY onlineaz /usr/local/bin/onlineaz
