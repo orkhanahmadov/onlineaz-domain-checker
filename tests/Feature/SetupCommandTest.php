@@ -24,7 +24,7 @@ class SetupCommandTest extends TestCase
             ->expectsQuestion('SMTP port', 555)
             ->expectsQuestion('SMTP username', 'username')
             ->expectsQuestion('SMTP password', 'pass')
-            ->expectsQuestion('SMTP encryption', 'ssl')
+            ->expectsQuestion('SMTP encryption (tls, ssl)', 'ssl')
             ->assertExitCode(0);
         Dotenv::create(base_path())->overload();
 
