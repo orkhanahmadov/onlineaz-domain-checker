@@ -24,7 +24,7 @@ Simple dockerized cli application to periodically check for domain availability 
 
 To keep container running in background, even after restarting Docker daemon, simply run:
 
-```docker run -dit --restart unless-stopped onlineaz-domain-checker```
+```docker run -dit --restart unless-stopped orkhanahmadov/onlineaz-domain-checker```
 
 ##### Application requires initial setup and domain list to work! See Usage.
 
