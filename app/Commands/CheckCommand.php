@@ -62,12 +62,12 @@ class CheckCommand extends Command
      */
     private function hasError()
     {
-        if (blank(env('MAIL_TO'))
-            || blank(env('MAIL_HOST'))
-            || blank(env('MAIL_PORT'))
-            || blank(env('MAIL_USERNAME'))
-            || blank(env('MAIL_PASSWORD'))
-            || blank(env('MAIL_ENCRYPTION'))) {
+        if (blank(env('MAIL_TO')) ||
+            blank(env('MAIL_HOST')) ||
+            blank(env('MAIL_PORT')) ||
+            blank(env('MAIL_USERNAME')) ||
+            blank(env('MAIL_PASSWORD')) ||
+            blank(env('MAIL_ENCRYPTION'))) {
             return 'Email configuration is missing. Please run "setup" command to configure email.';
         } elseif (! filled(env('DOMAINS'))) {
             return 'Domain list is empty. Please run "domains" command to add domain names you wish to be checked.';

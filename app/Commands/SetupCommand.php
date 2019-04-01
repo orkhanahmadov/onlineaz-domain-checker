@@ -23,7 +23,15 @@ class SetupCommand extends Command
     /**
      * @var array
      */
-    private $setup = [];
+    private $setup = [
+        'MAIL_TO',
+        'MAIL_FROM_ADDRESS',
+        'MAIL_HOST',
+        'MAIL_PORT',
+        'MAIL_USERNAME',
+        'MAIL_PASSWORD',
+        'MAIL_ENCRYPTION',
+    ];
 
     /**
      * Execute the console command.
@@ -35,6 +43,10 @@ class SetupCommand extends Command
         do {
             $this->setup['MAIL_TO'] = $this->ask('Email address where you want to receive notifications about free domains', env('MAIL_TO'));
         } while (! $this->setup['MAIL_TO']);
+
+        do {
+            $this->setup['MAIL_FROM_ADDRESS'] = $this->ask('Email address where you want to receive notifications from', env('MAIL_FROM_ADDRESS'));
+        } while (! $this->setup['MAIL_FROM_ADDRESS']);
 
         do {
             $this->setup['MAIL_HOST'] = $this->ask('SMTP host', env('MAIL_HOST'));
@@ -52,7 +64,7 @@ class SetupCommand extends Command
             $this->setup['MAIL_PASSWORD'] = $this->secret('SMTP password');
         } while (! $this->setup['MAIL_PASSWORD']);
 
-        $this->setup['MAIL_ENCRYPTION'] = $this->ask('SMTP encryption', env('MAIL_ENCRYPTION'));
+        $this->setup['MAIL_ENCRYPTION'] = $this->askWithCompletion('SMTP encryption (tls, ssl)', ['tls', 'ssl'], env('MAIL_ENCRYPTION'));
 
         $this->task('Saving configuration...', function () {
             foreach ($this->setup as $key => $value) {
