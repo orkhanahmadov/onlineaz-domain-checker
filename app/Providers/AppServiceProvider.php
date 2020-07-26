@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use App\Services\HTMLParser\OnlineazProvider;
 use App\Services\HTMLParser\Contracts\Provider;
+use App\Services\HTMLParser\OnlineazProvider;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

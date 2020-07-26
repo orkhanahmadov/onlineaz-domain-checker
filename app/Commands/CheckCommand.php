@@ -3,10 +3,10 @@
 namespace App\Commands;
 
 use App\Mail\DomainsMail;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
 use App\Services\HTMLParser\Contracts\Provider;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Facades\Mail;
+use LaravelZero\Framework\Commands\Command;
 
 class CheckCommand extends Command
 {

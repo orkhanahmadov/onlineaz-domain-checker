@@ -2,13 +2,13 @@
 
 namespace Tests\Feature;
 
-use Dotenv\Dotenv;
-use Tests\TestCase;
 use App\Mail\DomainsMail;
-use Illuminate\Support\Facades\Mail;
+use App\Services\HTMLParser\Contracts\Provider;
 use App\Services\HTMLParser\FakeProvider;
 use App\Services\HTMLParser\OnlineazProvider;
-use App\Services\HTMLParser\Contracts\Provider;
+use Dotenv\Dotenv;
+use Illuminate\Support\Facades\Mail;
+use Tests\TestCase;
 
 class CheckCommandTest extends TestCase
 {
