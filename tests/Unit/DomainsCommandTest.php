@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use App\Commands\DomainsCommand;
+use Tests\TestCase;
 
 class DomainsCommandTest extends TestCase
 {

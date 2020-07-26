@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Services\HTMLParser;
 
-use Tests\TestCase;
 use App\Services\HTMLParser\OnlineazProvider;
+use Tests\TestCase;
 
 class OnlineazProviderTest extends TestCase
 {
